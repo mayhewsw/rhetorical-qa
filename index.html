@@ -3,13 +3,35 @@
 <head>
 
 <style>
-    body {background-color: powderblue;}
+    body {
+        background-color: lightblue;
+        padding: 0px 50px;
+        font-family:"Georgia", Times, serif;  
+    }
     p    {color: red;}
+
+    textarea {
+        font-family:"Georgia", Times, serif;  
+        font-size: 20px;   
+    }
+
     #inputbox { 
         padding: 5px;
     }
     #results {
         padding: 15px;
+        background-color: white;
+        width: 400px;
+        border: 1px solid black;
+        visibility: hidden;
+    }
+    #results h2 {
+        margin: 0px;
+    }
+
+    .tbox {
+        padding: 15px;
+        font-size:20px;
     }
 </style>
 
@@ -26,7 +48,8 @@
     function onSubmit(){
         txt = document.getElementById("inputbox").value;
         ans = answers[Math.floor(Math.random() * answers.length)];
-        document.getElementById("results").innerHTML = "<strong>Question:</strong>" + txt + "<br /><strong>Answer:</strong> " + ans;
+        document.getElementById("results").style.visibility = "visible";
+        document.getElementById("results").innerHTML = "<h2>Question</h2><div class='tbox'>" + txt + "</div><h2>Answer</h2><div class='tbox'>" + ans + "</div>";
     }
 
 </script>
@@ -35,11 +58,14 @@
 
 
 <h1>Rhetorical Question Answering System</h1>
+<h2>Question</h2>
 <textarea id="inputbox" rows="4" cols="50">
-What's the meaning of life?
+How can anyone even?
 </textarea>
 <br><br>
 <input type="submit" value="Submit" id="submitbutton" onclick="onSubmit()">
+
+<br><br>
 
 <div id="results">
 
