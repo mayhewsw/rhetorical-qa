@@ -1,1 +1,49 @@
-<h1>Hello!</h1>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<style>
+    body {background-color: powderblue;}
+    p    {color: red;}
+    #inputbox { 
+        padding: 5px;
+    }
+    #results {
+        padding: 15px;
+    }
+</style>
+
+<script type="text/javascript">
+
+    answers = [
+        "Much to consider!",
+        "Many have asked this question.",
+        "Mmmm, yes (sagely).",
+        "Indeed!",
+        "I've wondered this myself!",
+    ]
+
+    function onSubmit(){
+        txt = document.getElementById("inputbox").value;
+        ans = answers[Math.floor(Math.random() * answers.length)];
+        document.getElementById("results").innerHTML = "<strong>Question:</strong>" + txt + "<br /><strong>Answer:</strong> " + ans;
+    }
+
+</script>
+</head>
+<body>
+
+
+<h1>Rhetorical Question Answering System</h1>
+<textarea id="inputbox" rows="4" cols="50">
+What's the meaning of life?
+</textarea>
+<br><br>
+<input type="submit" value="Submit" id="submitbutton" onclick="onSubmit()">
+
+<div id="results">
+
+</div>
+
+</body>
+</html>
