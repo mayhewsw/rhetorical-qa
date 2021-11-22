@@ -2,74 +2,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<style>
-    body {
-        background-color: lightblue;
-        padding: 0px 50px;
-        font-family:"Georgia", Times, serif;  
-    }
-    p    {color: red;}
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <script type="text/javascript" src="rqa.js" ></script>
 
-    textarea {
-        font-family:"Georgia", Times, serif;  
-        font-size: 20px;   
-    }
-
-    #inputbox { 
-        padding: 5px;
-    }
-    #results {
-        padding: 15px;
-        background-color: white;
-        width: 400px;
-        border: 1px solid black;
-        visibility: hidden;
-    }
-    #results h2 {
-        margin: 0px;
-    }
-
-    .tbox {
-        padding: 15px;
-        font-size:20px;
-    }
-</style>
-
-<script type="text/javascript">
-
-    answers = [
-        "Much to consider!",
-        "Many have asked this question.",
-        "Mmmm, yes (sagely).",
-        "Indeed!",
-        "I've wondered this myself!",
-    ]
-
-    function onSubmit(){
-        txt = document.getElementById("inputbox").value;
-        ans = answers[Math.floor(Math.random() * answers.length)];
-        document.getElementById("results").style.visibility = "visible";
-        document.getElementById("results").innerHTML = "<h2>Question</h2><div class='tbox'>" + txt + "</div><h2>Answer</h2><div class='tbox'>" + ans + "</div>";
-    }
-
-</script>
 </head>
 <body>
 
+<div class="topnav">
+    <div class="container">
+        <h1>Rhetorical Question Answering System</h1>
+    </div>
+</div>
 
-<h1>Rhetorical Question Answering System</h1>
-<h2>Question</h2>
-<textarea id="inputbox" rows="4" cols="50">
-How can anyone even?
-</textarea>
-<br><br>
-<input type="submit" value="Submit" id="submitbutton" onclick="onSubmit()">
+<div class="container">
+    <h2>Question</h2>
 
-<br><br>
+    <select id="examples" onchange="chooseExample()">
+        <option>Choose an example...</option>
+        <option>How many roads must a man walk down?</option>
+        <option>How can anyone even?</option>
+        <option>If you prick us do we not bleed?</option>
+        <option>Is this supposed to be some kind of a joke?</option>
+        <option>What's the point of rhetorical questions?</option>
+        <option>How do you solve a problem like Maria?</option>
+        <option>Is the sky blue?</option>
+    </select>
 
-<div id="results">
+    <br><br>
+
+    <textarea id="inputbox" rows="4" cols="50" placeholder="Ask a rhetorical question">
+    </textarea>
+    <br><br>
+    <input type="submit" value="Submit" id="submitbutton" onclick="onSubmit()">
+
+    <br><br>
+
+    <div id="loader"></div>
+    <div id="results"></div>
 
 </div>
 
+<div class="bottomnav">
+    <div class="container">
+        <p>This is not copyright.</p>
+    </div>
+</div>
 </body>
 </html>
