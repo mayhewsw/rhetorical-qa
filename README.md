@@ -6,11 +6,10 @@ Prior work in Question Answering has focused primarily on questions that can be 
     Rhetorical Question Answering (RQA): 1) detecting rhetorical questions, and 2) answering them appropriately.
     We leave the former problem to future work, and focus on the latter. What could go wrong?
 
-        
+
 See the demo here: [https://mayhewsw.github.io/rhetorical-qa/]()
 
-
-Read the paper here: [https://arxiv.org/pdf/2111.13370.pdf](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+Read the preprint here: [https://arxiv.org/pdf/2111.13370.pdf](https://www.youtube.com/watch?v=QtBDL8EiNZo)
 
 ## Citation
 
