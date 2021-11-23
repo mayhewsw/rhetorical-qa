@@ -1,51 +1,106 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
 
-    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
-    <script type="text/javascript" src="rqa.js" ></script>
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Rhetorical Question Answering Demo</title>
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Javascript
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script type="text/javascript" src="js/rqa.js" ></script>
 
 </head>
 <body>
 
-<div class="topnav">
-    <div class="container">
-        <h1>Rhetorical Question Answering System</h1>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="six column">
+        <h4>Rhetorical Question Answering Demo</h4>
+
+        <p>Prior work in Question Answering has focused primarily on questions that can be answered.
+          But this leads to unusual behavior when a user asks a question with no answer, commonly
+          referred to as a <em>rhetorical question</em>. There are two major open problems in the area of
+          Rhetorical Question Answering (RQA): 1) detecting rhetorical questions, and 2) answering them appropriately.
+          We leave the former problem to future work, and focus on the latter. What could go wrong?
+        </p>
+
+        <div class="row spacer"></div>
+
+        <form onSubmit="return onSubmit(event)">
+          <div class="row">
+            <div class="six columns">
+              <label for="examples">Examples</label>
+              <select class="u-full-width" id="examples" onchange="chooseExample()">
+                  <option>Choose an example...</option>
+                  <option>How many roads must a man walk down?</option>
+                  <option>How can anyone even?</option>
+                  <option>If you prick us do we not bleed?</option>
+                  <option>Is this supposed to be some kind of a joke?</option>
+                  <option>What's the point of rhetorical questions?</option>
+                  <option>How do you solve a problem like Maria?</option>
+                  <option>Is the sky blue?</option>
+                  <option>Don't you have something useful to do with your time?</option>
+                  <option>What could go wrong?</option>
+              </select>
+            </div>
+          </div>
+          <label for="inputbox">Input text</label>
+          <textarea class="u-full-width" placeholder="Ask a rhetorical question" id="inputbox"></textarea>
+          <input class="button-primary" type="submit" id="submitbutton" value="Submit">
+        </form>
+      </div>
     </div>
-</div>
-
-<div class="container">
-    <h2>Question</h2>
-
-    <select id="examples" onchange="chooseExample()">
-        <option>Choose an example...</option>
-        <option>How many roads must a man walk down?</option>
-        <option>How can anyone even?</option>
-        <option>If you prick us do we not bleed?</option>
-        <option>Is this supposed to be some kind of a joke?</option>
-        <option>What's the point of rhetorical questions?</option>
-        <option>How do you solve a problem like Maria?</option>
-        <option>Is the sky blue?</option>
-    </select>
-
-    <br><br>
-
-    <textarea id="inputbox" rows="4" cols="50" placeholder="Ask a rhetorical question">
-    </textarea>
-    <br><br>
-    <input type="submit" value="Submit" id="submitbutton" onclick="onSubmit()">
-
-    <br><br>
-
-    <div id="loader"></div>
-    <div id="results"></div>
-
-</div>
-
-<div class="bottomnav">
-    <div class="container">
-        <p>This is not copyright.</p>
+    
+    <div class="row">
+      <div class="six column">
+        <div id="loader"></div>
+        <div id="results">
+          <h5>Question</h5>
+          <p id="question"></p>
+          <h5>Answer</h5>
+          <p id="answer"></p>
+        </div>
+      </div>
     </div>
-</div>
+
+    <div class="row spacer"></div>
+    <div class="row">
+      <div class="six column">
+        <p>If you use this system in your research, please cite us!</p>
+        <pre><code>@misc{rqa,
+  author = {Stephen Mayhew},
+  title = {Why would anyone want Rhetorical Question Answering?}
+  year={2021},
+  eprint={2111.13370},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}</code></pre>
+      </div>
+    </div>
+
+
+
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>

@@ -13,24 +13,31 @@ answers = [
     "Perhaps Delphi would know?",
     "Beyond me.",
     "Such questions are difficult, but important.",
-    "Keep asking, perhaps one day you'll find an answer."
+    "Keep asking, perhaps one day you'll find an answer.",
+    "*nods in agreement*",
+    "That is the question!",
+    "Tough but fair.",
+    "We'd all like to know!",
+    "There's a grain of truth in that."
 ]
 
-async function onSubmit(){
+async function onSubmit(event){
+    event.preventDefault();
     txt = document.getElementById("inputbox").value;
     if (txt.length == 0){
         return
     }
     document.getElementById("results").style.visibility = "hidden";
     document.getElementById("loader").style.visibility = "visible";
-    // sleep a few seconds?
+    // sleep a short time to simulate doing cool neural stuff
     await new Promise(r => setTimeout(r, 900));
     document.getElementById("loader").style.visibility = "hidden";
 
-
     ans = answers[Math.floor(Math.random() * answers.length)];
     document.getElementById("results").style.visibility = "visible";
-    document.getElementById("results").innerHTML = "<h2>Question</h2><div class='tbox'>" + txt + "</div><h2>Answer</h2><div class='tbox'>" + ans + "</div>";
+    document.getElementById("question").innerHTML = txt;
+    document.getElementById("answer").innerHTML = ans;
+    
 }
 
 function chooseExample(){
